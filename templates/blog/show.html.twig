@@ -3,22 +3,10 @@
 {% block body %}
 
     <article>
-        <h2>Titre de l'article</h2>
-        <div class="metadata">Ecrit le 10/05/2018 à 19:00 dans la catégorie Politique</div>
-        <div class="content"><img src="http://placehold.it/350x150" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cumque magnam minus non quia?
-                Dolores?</p>
-            <p>Beatae cum dolorum facere fugit laborum maxime omnis praesentium quam quas quasi! Maiores, quidem,
-                sapiente.</p>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam asperiores atque blanditiis
-                corporis culpa cumque deleniti deserunt distinctio dolor ducimus, fugit impedit itaque laboriosam magni
-                maxime nisi odit perspiciatis praesentium quibusdam quisquam rem rerum saepe similique totam velit
-                veniam voluptate! Ab dignissimos hic itaque magni officia quam quasi quis?</p>
-            <p>Architecto facere facilis laborum perspiciatis recusandae repellat, velit voluptatibus. Autem consequatur
-                deserunt ducimus nesciunt! Architecto atque consequatur dolorem necessitatibus veniam. Ab ad aliquid
-                aperiam atque consectetur consequatur, deserunt dignissimos doloribus eveniet ex fugit incidunt itaque
-                iure laborum maiores nihil, nulla placeat porro quae quidem quis quos, rem repellendus unde vitae?</p>
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Ecrit le {{ article.createdAt | date ('d/m/Y') }} à {{ article.createdAt | date ('H:i') }} dans la catégorie Politique</div>
+        <div class="content"><img src="{{ article.image }}" alt="">
+            {{ article.content | raw }}
     </article>
 
 {%  endblock %}
