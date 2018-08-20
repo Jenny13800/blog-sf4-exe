@@ -3,6 +3,6 @@
 ### Tutorial
 https://www.youtube.com/watch?v=UTusmVpwJXo
 
-## Author
+## Author tutorial
 
 **Lior Chamla**
