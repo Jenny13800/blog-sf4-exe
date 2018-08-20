@@ -30,7 +30,7 @@ class BlogController extends AbstractController
     public function home(){
         return $this->render('blog/home.html.twig');
     }
-    
+
     /*public function show(ArticleRepository $repo,$id){
         //$repo = $this->getDoctrine()->getRepository(Article::class);
 
