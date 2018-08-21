@@ -5,7 +5,7 @@
 {% block body %}
 
     <article class="text-center">
-        <h2>{{ article.title }}</h2>
+        <h1>{{ article.title }}</h1>
         <div class="metadata m-2">Ecrit le {{ article.createdAt | date ('d/m/Y') }} à {{ article.createdAt | date ('H:i') }} dans la catégorie {{ article.category.title }}</div>
         <div class="content">
             <img src="{{ article.image }}" alt="">
@@ -14,6 +14,7 @@
     </article>
 
     <section id="commentaires">
+        <h2>{{ article.comments | length }} Commentaires : </h2>
         {% for comment in article.comments %}
             <div class="comment">
                 <div class="row border border-light rounded m-2">
@@ -26,6 +27,17 @@
                 </div>
             </div>
         {% endfor %}
+        {% if app.user %}
+        {{ form_start(commentForm) }}
+        {{ form_row(commentForm.author, { 'attr': {'placeholder': 'Votre nom'}}) }}
+        {{ form_row(commentForm.content, { 'attr': {'placeholder': 'Votre commentaire'}}) }}
+        <button type="submit" class="btn btn-success float-right">Commentez !</button>
+        {{ form_end(commentForm) }}
+
+        {% else %}
+            <h3>Vous ne pouvez pas commenter si vous n'êtes pas connecté !</h3>
+            <a href="{{ path('security_login') }}" class="btn btn-primary">Connexion</a>
+        {% endif %}
     </section>
 
 {%  endblock %}
